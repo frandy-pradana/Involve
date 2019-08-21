@@ -1,0 +1,14 @@
+{
+    "name": "frandy/src",
+    "type": "library",
+    "require": {
+        "nikic/fast-route": "^1.3",
+        "symfony/var-dumper": "^3.4",
+        "php": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Involve\\": ""
+        }
+    }
+}
