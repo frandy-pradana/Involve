@@ -70,7 +70,7 @@ class Dispatcher
 			echo $is_callback;
 		}
 		
-		hhh
+		
 		if(is_array($is_callback) || is_object($is_callback) || is_callable($is_callback)){
 			dump($is_callback);
 		}
