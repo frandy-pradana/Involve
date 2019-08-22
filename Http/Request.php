@@ -10,7 +10,7 @@ class Request
 	
 	}
 	
-	public function post()
+	public function post($key)
 	{
 	
 	}
