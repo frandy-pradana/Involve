@@ -7,7 +7,9 @@ use FastRoute\RouteCollector;
 
 class Route 
 {
-    
+    /*
+    *@var object
+    */
     protected $dispatcher;
 	
 	/*
