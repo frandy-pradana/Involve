@@ -7,7 +7,9 @@ use Involve\Router\Dispatcher;
 
 class App
 {
-    
+    /*
+    *@var object
+    */
     protected $route;
 
     /*
