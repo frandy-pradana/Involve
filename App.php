@@ -45,3 +45,8 @@ class App
     
 
 }
+
+
+
+
+require_once('view/view.php');

@@ -7,7 +7,13 @@ use FastRoute\Dispatcher as Dispatch;
 
 class Dispatcher
 {
-
+	
+	/*
+	* Get found route
+	*
+	*@param array $info
+	*@return void
+	*/
 	public function handle($info)
 	{
 		switch ($info[0]) {
@@ -28,7 +34,13 @@ class Dispatcher
 		}
 	}
 	
-	protected function handleFoundRoute($handler,$vars)
+	/*
+	* Get callback for found route
+	*
+	*@param string\Closure
+	*@param array $vars
+	*/
+	protected function handleFoundRoute($handler,array $vars)
 	{
 		if(is_callable($handler)){
 			$callback = call_user_func_array($handler,$vars);
@@ -46,6 +58,12 @@ class Dispatcher
 		
 	}
 	
+	/*
+	* Get callback initilisasi
+	*
+	*@paeam Object $is_callback
+	@return object
+	*/
 	protected function executeCallback($is_callback)
 	{
 		if(is_string($is_callback)){

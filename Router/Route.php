@@ -30,13 +30,15 @@ class Route
     	// Fetch method and URI from somewhere
     	$httpMethod = $_SERVER['REQUEST_METHOD'];
     	$uri = str_replace([$dir,$base],null,$_SERVER['REQUEST_URI']);
-    	
+    	if(PHP_SAPI === 'cli-server' || $_SERVER['PHP_SELF'] === '/index.php'){
+    		$uri = $_SERVER['REQUEST_URI'];
+    	}
     	// Strip query string (?foo=bar) and decode URI
     	if (false !== $pos = strpos($uri, '?')) {
    	 		$uri = substr($uri, 0, $pos);
     	}
     		$uri = rawurldecode($uri);
-    	
+    		$uri = '/'.ltrim($uri,'/');
     	return $this->dispatcher->dispatch($httpMethod, $uri);
     }
     
@@ -56,9 +58,9 @@ class Route
     		$routes = file_get_contents(PATH.'/routes/web.php');
     		$content = file_get_contents(PATH.'/routes/log/route.log');
     	}
-       $date = date('Y-m-d');
-       file_put_contents(PATH.'/routes/log/route.log',$routes);
-       file_put_contents(PATH.'/routes/log/route.log',$date.'\n'.$content);
+       $date = '['.date('Y-m-d').']
+';
+       file_put_contents(PATH.'/routes/log/route.log',$date.$routes);
     }
 
 }
